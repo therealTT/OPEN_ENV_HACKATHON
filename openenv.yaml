@@ -1,0 +1,14 @@
+name: regulatory-portal-nav
+version: "1.0"
+description: >
+  A simulated FDA-style drug regulatory portal where an agent must navigate
+  pages, extract information, and submit forms. Tests multi-step planning,
+  cross-page memory, and form-filling under structured navigation constraints.
+tasks:
+  - id: task_1
+    description: "Find the approval date and approved indication for NEXOLARA by navigating the drug search."
+  - id: task_2
+    description: "Find the recommended starting dose for NEXOLARA from its Prescribing Information document."
+  - id: task_3
+    description: "Submit a Labeling Inquiry form for NEXOLARA with correct app number, approval date, and manufacturer — looked up from the portal."
+endpoint: https://YOUR-HF-SPACE.hf.space
