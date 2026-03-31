@@ -1,3 +1,12 @@
+---
+title: Regulatory Portal Nav
+emoji: 🏥
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # Regulatory Portal — OpenEnv Environment
 
 A simulated FDA-style drug regulatory web portal where an agent must navigate pages, extract information, and submit forms to complete tasks. Built for the Scaler/OpenEnv Hackathon Round 1.
