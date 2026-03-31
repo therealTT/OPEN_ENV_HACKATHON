@@ -6,9 +6,11 @@
 
 ---
 
-## Current Status (as of March 30, 2026)
+## Current Status (as of March 31, 2026)
 
-**All core code is written and smoke-tested locally. ✅**
+**Deployed and live on Hugging Face Spaces. ✅**
+**Space URL:** https://huggingface.co/spaces/T-T123/regulatory-portal-nav
+**Endpoint:** https://t-t123-regulatory-portal-nav.hf.space
 
 ### What's done
 - `seed_db.py` — creates `portal.db` with drugs + documents
@@ -20,39 +22,23 @@
 - `tasks/task_1.py` — drug lookup grader (scores 1.0 on happy path ✅)
 - `tasks/task_2.py` — document retrieval grader (scores 1.0 on happy path ✅)
 - `tasks/task_3.py` — form submission grader (scores 1.0 on happy path ✅)
-- `server.py` — FastAPI `/reset` `/step` `/state` endpoints (tested locally ✅)
+- `server/app.py` — FastAPI `/reset` `/step` `/state` endpoints (tested locally ✅)
 - `inference.py` — baseline agent script
 - `requirements.txt`, `Dockerfile`, `openenv.yaml`
+- Stress tested failure paths ✅
+- `README.md` written ✅
+- Deployed to HF Spaces, `/reset` returns HTTP 200 ✅
+- `openenv.yaml` updated with real endpoint ✅
+- `openenv validate` passed ✅
 
-### What still needs to be done (in order)
+### What still needs to be done
 
-1. **Stress test failure paths locally**
-   - Agent hits max steps → reward should be 0.0
-   - Agent submits form with missing fields → error page, not crash
-   - Agent answers with wrong values → partial scores
-   - Agent hallucinates answer without visiting correct page → 0.25 penalty
-
-2. **Write README.md** — required for submission, document tasks + setup + how to run
-
-3. **Deploy to Hugging Face Spaces**
-   - Create new Space (Docker SDK, public)
-   - Push all files to the Space repo
-   - Verify `/reset` returns HTTP 200
-
-4. **Update `openenv.yaml`**
-   - Replace `endpoint: https://YOUR-HF-SPACE.hf.space` with the real URL
-
-5. **Install openenv CLI and run `openenv validate`**
-   - `pip install openenv`
-   - `openenv validate`
-   - Fix any spec compliance issues
-
-6. **Test `inference.py` end-to-end**
+1. **Test `inference.py` end-to-end** (optional but recommended)
    - Set env vars: `API_BASE_URL`, `MODEL_NAME`, `HF_SPACE_URL`, `OPENAI_API_KEY`
    - Run against live Space
    - Confirm scores print for all 3 tasks
 
-7. **Final submission checklist** (see Pre-Submission Checklist section below)
+2. **Final submission** — submit Space URL on the hackathon dashboard
 
 ---
 
