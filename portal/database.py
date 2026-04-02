@@ -18,7 +18,7 @@ def search_drugs(query: str) -> list[dict]:
     q = f"%{query.strip()}%"
     with _conn() as conn:
         rows = conn.execute(
-            "SELECT * FROM drugs WHERE drug_name LIKE ? OR app_number LIKE ?",
+            "SELECT drug_name, app_number, status FROM drugs WHERE drug_name LIKE ? OR app_number LIKE ?",
             (q, q),
         ).fetchall()
     return [dict(r) for r in rows]

@@ -11,4 +11,4 @@ tasks:
     description: "Find the recommended starting dose for NEXOLARA from its Prescribing Information document."
   - id: task_3
     description: "Submit a Labeling Inquiry form for NEXOLARA with correct app number, approval date, and manufacturer — looked up from the portal."
-endpoint: https://YOUR-HF-SPACE.hf.space
+endpoint: https://t-t123-regulatory-portal-nav.hf.space
