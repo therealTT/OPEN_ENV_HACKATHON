@@ -17,8 +17,8 @@ import requests
 from typing import List, Optional
 from openai import OpenAI
 
-API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
-MODEL_NAME   = os.getenv("MODEL_NAME",   "Qwen/Qwen2.5-72B-Instruct")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://api.groq.com/openai/v1")
+MODEL_NAME   = os.getenv("MODEL_NAME",   "moonshotai/kimi-k2-instruct")
 API_KEY      = os.getenv("HF_TOKEN") or os.getenv("API_KEY", "none")
 HF_SPACE_URL = "https://t-t123-regulatory-portal-nav.hf.space"
 BENCHMARK    = "regulatory-portal-nav"
