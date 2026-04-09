@@ -4,11 +4,11 @@ Submit a Labeling Inquiry for NEXOLARA with correct app_number,
 approval_date, and manufacturer.
 
 Scoring:
-  1.00 — form submitted + all 3 key fields correct
+  1 — form submitted + all 3 key fields correct
   0.75 — form submitted + 2/3 key fields correct
   0.50 — form submitted + 1/3 key fields correct
   0.25 — form reached (form_labeling page visited) but not submitted
-  0.00 — form never reached
+  0 — form never reached
 """
 from portal.session import SessionState
 
@@ -25,7 +25,7 @@ def grade(session: SessionState) -> tuple[float, str]:
     if not session.form_submitted:
         if session.current_form == "labeling_inquiry" or "form_labeling" in _page_history(session):
             return 0.25, "Labeling Inquiry form was opened but not submitted."
-        return 0.0, "Form was never reached."
+        return 0, "Form was never reached."
 
     fields = session.form_fields
     correct = sum(
@@ -45,7 +45,7 @@ def grade(session: SessionState) -> tuple[float, str]:
     detail = ", ".join(reasons)
 
     if correct == 3:
-        return 1.0,  f"Form submitted with all fields correct. {detail}"
+        return 1,    f"Form submitted with all fields correct. {detail}"
     if correct == 2:
         return 0.75, f"Form submitted, 2/3 key fields correct. {detail}"
     if correct == 1:
