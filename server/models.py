@@ -12,7 +12,7 @@ class Action(BaseModel):
 
 
 class Reward(BaseModel):
-    value: float
+    value: Any
     reason: str = ""
 
 

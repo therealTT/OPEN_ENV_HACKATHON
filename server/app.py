@@ -55,7 +55,7 @@ def _run_grader(session: SessionState) -> Reward:
     if grader is None:
         return Reward(value=0.0, reason="Unknown task.")
     value, reason = grader(session)
-    value = max(0.0, min(1.0, float(value)))
+    value = max(0, min(1, int(value) if float(value) in (0.0, 1.0) else float(value)))
     return Reward(value=value, reason=reason)
 
 
