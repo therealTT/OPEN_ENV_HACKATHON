@@ -53,9 +53,9 @@ def _make_observation(session: SessionState) -> Observation:
 def _run_grader(session: SessionState) -> Reward:
     grader = GRADERS.get(session.task_id)
     if grader is None:
-        return Reward(value=0, reason="Unknown task.")
+        return Reward(value=0.01, reason="Unknown task.")
     value, reason = grader(session)
-    value = max(0, min(1, int(value) if float(value) in (0.0, 1.0) else float(value)))
+    value = max(0.01, min(0.99, float(value)))
     return Reward(value=value, reason=reason)
 
 
@@ -101,7 +101,7 @@ def step(action: Action) -> StepResult:
         obs = _make_observation(session)
         return StepResult(
             observation=obs,
-            reward=Reward(value=0, reason="Episode already done. Call /reset to start a new one."),
+            reward=Reward(value=0.01, reason="Episode already done. Call /reset to start a new one."),
             done=True,
         )
 
@@ -126,7 +126,7 @@ def step(action: Action) -> StepResult:
     if done:
         reward = _run_grader(session)
     else:
-        reward = Reward(value=0, reason="Episode in progress.")
+        reward = Reward(value=0.01, reason="Episode in progress.")
 
     obs = _make_observation(session)
     return StepResult(observation=obs, reward=reward, done=done)
